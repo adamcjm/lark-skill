@@ -16,6 +16,7 @@ import { bold, bullet, cyan, dim, fail, green, header, note, step, warn, yellow 
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const TEMPLATES = join(HERE, "..", "templates");
+const VERSION = JSON.parse(readFileSync(join(HERE, "..", "package.json"), "utf8")).version;
 
 /** Read the version of the installed lark-cli, if any. */
 export function detectCliVersion() {
@@ -143,7 +144,7 @@ export async function doctor({ dir, target = "auto" } = {}) {
   const cliVersion = detectCliVersion();
   const installed = existsSync(layout.skillMd) && existsSync(layout.vendorSkills);
 
-  header("lark-skill status");
+  header(`lark-skill status ${dim(`v${VERSION}`)}`);
   bullet("install dir", layout.root, { ok: installed });
   if (!installed && !explicit) {
     console.log();
@@ -169,15 +170,17 @@ export async function doctor({ dir, target = "auto" } = {}) {
 
   console.log();
   header("Registrations");
-  const targets = resolveTargets(target);
-  const rows = [];
+  // Show every target (including the opt-in shared directory) so the user can
+  // see what exists, not just what the current --target selection touches.
+  const targets = resolveTargets(target === "auto" ? "all" : target);
   for (const t of targets) {
     const status = t.status({ ...layout, skillMd: layout.skillMd, root: layout.root });
-    rows.push([t.title, status.registered ? "registered" : "not registered", status.detail ?? ""]);
-  }
-  for (const [name, state, detail] of rows) {
-    const mark = state === "registered" ? green("✅") : yellow("⚠️ ");
-    console.log(`  ${mark} ${name.padEnd(18)} ${state.padEnd(16)} ${dim(detail)}`);
+    // The shared ~/.agents directory is opt-in, so "not registered" there is
+    // normal rather than something to warn about.
+    const optional = t.id === "agents";
+    const mark = status.registered ? green("✅") : optional ? dim("• ") : yellow("⚠️ ");
+    const state = status.registered ? "registered" : optional ? "not registered (optional)" : "not registered";
+    console.log(`  ${mark} ${t.title.padEnd(18)} ${state.padEnd(26)} ${dim(status.detail ?? "")}`);
   }
 
   if (cliVersion) {
