@@ -144,8 +144,11 @@ export const TARGET_IDS = Object.keys(TARGETS);
 /** Resolve a --target value ("auto", "pi,zcode", "all", ...) into target objects. */
 export function resolveTargets(spec = "auto") {
   if (!spec || spec === "auto") {
-    const detected = TARGET_IDS.map((id) => TARGETS[id]).filter((t) => t.detect());
-    return detected.length ? detected : [TARGETS.pi, TARGETS.zcode];
+    // pi and zcode are wired up automatically. The shared ~/.agents directory
+    // is opt-in only: it is read by every harness on the machine, so writing
+    // there should never be a side effect of a bare `npx lark-skill`.
+    const auto = [TARGETS.pi, TARGETS.zcode].filter((t) => t.detect());
+    return auto.length ? auto : [TARGETS.pi, TARGETS.zcode];
   }
   if (spec === "all") return TARGET_IDS.map((id) => TARGETS[id]);
   const ids = String(spec)

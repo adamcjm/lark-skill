@@ -128,6 +128,15 @@ describe("targets", () => {
     assert.ok(resolveTargets("").length >= 1);
   });
 
+  it("never auto-registers the shared ~/.agents directory", () => {
+    // It is read by every harness on the machine, so it must stay opt-in.
+    for (const spec of ["auto", ""]) {
+      const ids = resolveTargets(spec).map((t) => t.id);
+      assert.ok(!ids.includes("agents"), `auto must not include agents (spec=${JSON.stringify(spec)})`);
+    }
+    assert.deepEqual(resolveTargets("agents").map((t) => t.id), ["agents"]);
+  });
+
   it("rejects unknown targets", () => {
     assert.throws(() => resolveTargets("vscode"), /unknown target/);
   });
