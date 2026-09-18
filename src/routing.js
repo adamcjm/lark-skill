@@ -92,7 +92,7 @@ export function generateRouting({ skillsDir, outFile, root, source }) {
     `> 来源：\`${source?.vendorOf ?? "larksuite/cli"}\` @ \`${source?.ref ?? "unknown"}\`，` +
       `共 ${groups.length} 个子能力。`,
   );
-  lines.push("> 由 `npx lark-skill update` 自动生成，**请勿手改**。");
+  lines.push("> 由 `npx @adamcjm/lark-skill update` 自动生成，**请勿手改**。");
   lines.push("> **不要整体通读**：先按速查表定位 1~2 个候选，再读对应的 `SKILL.md`。\n");
 
   lines.push("## 速查表\n");

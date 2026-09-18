@@ -171,7 +171,7 @@ export async function writeSourceJson({ file, ref, skillsDir, skillCount, fileCo
     fileCount,
     installedCliVersion: cliVersion ?? null,
     isolatedSkillsCopied: Boolean(isolatedCopied),
-    note: "Verbatim snapshot of the official skills. Do not edit by hand; run `npx lark-skill update`.",
+    note: "Verbatim snapshot of the official skills. Do not edit by hand; run `npx @adamcjm/lark-skill update`.",
   });
 }
 

@@ -1,5 +1,5 @@
 {
-  "name": "lark-skill",
+  "name": "@adamcjm/lark-skill",
   "version": "1.0.0",
   "description": "Expose Feishu/Lark to your coding agent as ONE skill instead of 27. Vendors the official larksuite/cli skills and routes to them on demand. Works with pi and zcode.",
   "type": "module",
@@ -40,6 +40,9 @@
   ],
   "author": "adamcjm",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/adamcjm/lark-skill.git"

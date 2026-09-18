@@ -38,7 +38,7 @@ metadata:
 | 业务域子能力 | `vendor/larksuite-cli/skills/<skill-name>/SKILL.md` |
 | **完整子能力清单（权威，随版本更新）** | `references/routing.md` |
 | 版本与来源 | `vendor/larksuite-cli/SOURCE.json` |
-| 更新官方 skills | `npx lark-skill update` |
+| 更新官方 skills | `npx @adamcjm/lark-skill update` |
 
 ## 路由表
 
@@ -133,8 +133,8 @@ lark-cli doctor                        # 配置、认证、连通性自检
 ## 维护
 
 ```bash
-npx lark-skill update     # 重新拉取官方 skills（保持版本对齐）
-npx lark-skill doctor     # 检查安装与注册状态
+npx @adamcjm/lark-skill update     # 重新拉取官方 skills（保持版本对齐）
+npx @adamcjm/lark-skill doctor     # 检查安装与注册状态
 ```
 
 官方 skills 是**原样快照**，不要手改 `vendor/` 下的文件（下次更新会被覆盖）；要定制就改本目录的 `SKILL.md` 或 `references/`。

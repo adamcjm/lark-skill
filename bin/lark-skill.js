@@ -7,7 +7,7 @@ const HELP = `
 ${bold("lark-skill")} — expose Feishu/Lark to your agent as ONE skill, not 27.
 
 ${bold("USAGE")}
-  npx lark-skill ${dim("[command] [options]")}
+  npx @adamcjm/lark-skill ${dim("[command] [options]")}
 
 ${bold("COMMANDS")}
   ${cyan("install")}     ${dim("(default)")} vendor the official Lark skills and register with your agent
@@ -28,10 +28,10 @@ ${bold("OPTIONS")}
   ${cyan("-v, --version")}     print version
 
 ${bold("EXAMPLES")}
-  ${dim("$")} npx lark-skill                 ${dim("# just install it")}
-  ${dim("$")} npx lark-skill --target pi     ${dim("# only wire up pi")}
-  ${dim("$")} npx lark-skill --latest        ${dim("# newest official skills")}
-  ${dim("$")} npx lark-skill doctor          ${dim("# is everything wired up?")}
+  ${dim("$")} npx @adamcjm/lark-skill                 ${dim("# just install it")}
+  ${dim("$")} npx @adamcjm/lark-skill --target pi     ${dim("# only wire up pi")}
+  ${dim("$")} npx @adamcjm/lark-skill --latest        ${dim("# newest official skills")}
+  ${dim("$")} npx @adamcjm/lark-skill doctor          ${dim("# is everything wired up?")}
 
 ${bold("PREREQUISITE")}
   npm i -g @larksuite/cli && lark-cli config init && lark-cli auth login --recommend

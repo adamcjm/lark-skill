@@ -127,7 +127,7 @@ export async function install({ dir, ref, latest = false, target = "auto", quiet
       warn(
         `installed lark-cli is ${mismatchedCli} but no matching tag existed; docs may reference newer commands`,
       );
-      warn(`upgrade with: npm i -g @larksuite/cli@latest && npx lark-skill update --latest`);
+      warn(`upgrade with: npm i -g @larksuite/cli@latest && npx @adamcjm/lark-skill update --latest`);
     }
     if (routing.count !== skills) {
       warn(`routing table lists ${routing.count} skills but ${skills} were vendored`);
@@ -147,7 +147,7 @@ export async function doctor({ dir, target = "auto" } = {}) {
   bullet("install dir", layout.root, { ok: installed });
   if (!installed && !explicit) {
     console.log();
-    note("  Not installed yet. Run: npx lark-skill");
+    note("  Not installed yet. Run: npx @adamcjm/lark-skill");
     return { installed: false };
   }
 
@@ -163,7 +163,7 @@ export async function doctor({ dir, target = "auto" } = {}) {
   );
   if (cliVersion && source?.installedCliVersion && cliVersion !== source.installedCliVersion) {
     warn(
-      `lark-cli is ${cliVersion} but vendored docs are from ${source.installedCliVersion}; run: npx lark-skill update`,
+      `lark-cli is ${cliVersion} but vendored docs are from ${source.installedCliVersion}; run: npx @adamcjm/lark-skill update`,
     );
   }
 

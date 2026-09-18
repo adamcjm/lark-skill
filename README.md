@@ -22,7 +22,7 @@
 ## Install
 
 ```bash
-npx lark-skill
+npx @adamcjm/lark-skill
 ```
 
 That's it. It downloads the official skills, installs them to `~/.lark-skill`, and wires up every agent it finds (pi, zcode). **Restart your agent** afterwards.
@@ -34,16 +34,16 @@ Then just talk normally:
 ### Options
 
 ```bash
-npx lark-skill --target pi          # only wire up pi
-npx lark-skill --target zcode       # only wire up zcode
-npx lark-skill --latest             # newest official skills
-npx lark-skill --ref v1.0.96        # pin an official version
-npx lark-skill --dir ~/my-skills    # custom install location
-npx lark-skill doctor               # check everything
-npx lark-skill uninstall --purge    # remove (files too)
+npx @adamcjm/lark-skill --target pi          # only wire up pi
+npx @adamcjm/lark-skill --target zcode       # only wire up zcode
+npx @adamcjm/lark-skill --latest             # newest official skills
+npx @adamcjm/lark-skill --ref v1.0.96        # pin an official version
+npx @adamcjm/lark-skill --dir ~/my-skills    # custom install location
+npx @adamcjm/lark-skill doctor               # check everything
+npx @adamcjm/lark-skill uninstall --purge    # remove (files too)
 ```
 
-Prefer a global command? `npm i -g lark-skill` then use `lark-skill` directly.
+Prefer a global command? `npm i -g @adamcjm/lark-skill` then use `lark-skill` directly.
 
 ## Requirements
 
@@ -71,11 +71,11 @@ Use `--target agents` to opt into the shared directory. `--target auto` (the def
 
 | Command | What it does |
 |---|---|
-| `npx lark-skill` | Install (same as `install`) |
-| `npx lark-skill install` | Vendor official skills + register |
-| `npx lark-skill update` | Re-download official skills, refresh the routing table |
-| `npx lark-skill doctor` | Install state, registrations, `lark-cli` health |
-| `npx lark-skill uninstall` | Unregister (`--purge` also deletes files) |
+| `npx @adamcjm/lark-skill` | Install (same as `install`) |
+| `npx @adamcjm/lark-skill install` | Vendor official skills + register |
+| `npx @adamcjm/lark-skill update` | Re-download official skills, refresh the routing table |
+| `npx @adamcjm/lark-skill doctor` | Install state, registrations, `lark-cli` health |
+| `npx @adamcjm/lark-skill uninstall` | Unregister (`--purge` also deletes files) |
 
 By default `install`/`update` pick the official tag that **matches your installed `lark-cli`**, so the docs never describe commands your binary doesn't have. Use `--latest` to jump ahead.
 
@@ -153,8 +153,8 @@ Don't edit anything under `vendor/` — it's overwritten on update. To add your 
 | `lark-cli: command not found` | `npm i -g @larksuite/cli` |
 | Mail/calendar returns empty | You're on bot identity. Run `lark-cli auth login --recommend`. |
 | "permission denied" / `missing_scopes` | Read `vendor/larksuite-cli/skills/lark-shared/SKILL.md` — it covers scope handling. |
-| Docs mention a command your CLI lacks | `npm i -g @larksuite/cli@latest && npx lark-skill update --latest` |
-| Want to see what's registered | `npx lark-skill doctor` |
+| Docs mention a command your CLI lacks | `npm i -g @larksuite/cli@latest && npx @adamcjm/lark-skill update --latest` |
+| Want to see what's registered | `npx @adamcjm/lark-skill doctor` |
 
 ## Security
 

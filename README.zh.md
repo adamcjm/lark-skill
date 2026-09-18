@@ -22,7 +22,7 @@
 ## 安装
 
 ```bash
-npx lark-skill
+npx @adamcjm/lark-skill
 ```
 
 就这一条。它会下载官方 skills、安装到 `~/.lark-skill`，并自动接线到所有检测到的 Agent（pi、zcode）。**装完重启你的 Agent**。
@@ -34,16 +34,16 @@ npx lark-skill
 ### 可选参数
 
 ```bash
-npx lark-skill --target pi          # 只接线 pi
-npx lark-skill --target zcode       # 只接线 zcode
-npx lark-skill --latest             # 用最新的官方 skills
-npx lark-skill --ref v1.0.96        # 锁定官方版本
-npx lark-skill --dir ~/my-skills    # 自定义安装位置
-npx lark-skill doctor               # 检查安装状态
-npx lark-skill uninstall --purge    # 卸载（连文件一起删）
+npx @adamcjm/lark-skill --target pi          # 只接线 pi
+npx @adamcjm/lark-skill --target zcode       # 只接线 zcode
+npx @adamcjm/lark-skill --latest             # 用最新的官方 skills
+npx @adamcjm/lark-skill --ref v1.0.96        # 锁定官方版本
+npx @adamcjm/lark-skill --dir ~/my-skills    # 自定义安装位置
+npx @adamcjm/lark-skill doctor               # 检查安装状态
+npx @adamcjm/lark-skill uninstall --purge    # 卸载（连文件一起删）
 ```
 
-想装成全局命令：`npm i -g lark-skill`，之后直接用 `lark-skill`。
+想装成全局命令：`npm i -g @adamcjm/lark-skill`，之后直接用 `lark-skill`。
 
 ## 前置条件
 
@@ -71,11 +71,11 @@ lark-cli auth login --recommend     # 授权你的 user 身份
 
 | 命令 | 作用 |
 |---|---|
-| `npx lark-skill` | 安装（等同 `install`） |
-| `npx lark-skill install` | 下载官方 skills + 注册 |
-| `npx lark-skill update` | 重新下载官方 skills，刷新路由表 |
-| `npx lark-skill doctor` | 查看安装状态、注册情况、`lark-cli` 健康度 |
-| `npx lark-skill uninstall` | 注销（`--purge` 同时删除文件） |
+| `npx @adamcjm/lark-skill` | 安装（等同 `install`） |
+| `npx @adamcjm/lark-skill install` | 下载官方 skills + 注册 |
+| `npx @adamcjm/lark-skill update` | 重新下载官方 skills，刷新路由表 |
+| `npx @adamcjm/lark-skill doctor` | 查看安装状态、注册情况、`lark-cli` 健康度 |
+| `npx @adamcjm/lark-skill uninstall` | 注销（`--purge` 同时删除文件） |
 
 默认情况下 `install`/`update` 会选**与你已装 `lark-cli` 版本匹配**的官方 tag，避免文档描述了你本地命令没有的参数。想跳到最新用 `--latest`。
 
@@ -153,8 +153,8 @@ Agent 的系统提示里只有：  lark-skill
 | `lark-cli: command not found` | `npm i -g @larksuite/cli` |
 | 邮件/日历返回空 | 你在用 bot 身份。跑 `lark-cli auth login --recommend`。 |
 | 提示权限不足 / `missing_scopes` | 读 `vendor/larksuite-cli/skills/lark-shared/SKILL.md`，里面有 scope 处理流程。 |
-| 文档提到你 CLI 没有的命令 | `npm i -g @larksuite/cli@latest && npx lark-skill update --latest` |
-| 想看当前注册了什么 | `npx lark-skill doctor` |
+| 文档提到你 CLI 没有的命令 | `npm i -g @larksuite/cli@latest && npx @adamcjm/lark-skill update --latest` |
+| 想看当前注册了什么 | `npx @adamcjm/lark-skill doctor` |
 
 ## 安全
 
