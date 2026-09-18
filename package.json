@@ -1,6 +1,6 @@
 {
   "name": "@adamcjm/lark-skill",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Expose Feishu/Lark to your coding agent as ONE skill instead of 27. Vendors the official larksuite/cli skills and routes to them on demand. Works with pi and zcode.",
   "type": "module",
   "bin": {
