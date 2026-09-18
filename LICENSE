@@ -19,11 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-The Feishu/Lark skills under `vendor/larksuite-cli/` are downloaded at install
-time from https://github.com/larksuite/cli, which is maintained by the
-larksuite team and licensed under the MIT License. They are not part of this
-package's source distribution and remain under their original license and
-copyright.
