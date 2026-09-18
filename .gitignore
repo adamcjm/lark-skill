@@ -1,0 +1,13 @@
+# Runtime install artifacts — created by `npx lark-skill install`
+# (anchored to the repo root so templates/ and src/ are never skipped)
+/vendor/
+/references/routing.md
+/SKILL.md
+
+# Dependencies / packaging
+node_modules/
+*.tgz
+*.log
+
+# macOS
+.DS_Store

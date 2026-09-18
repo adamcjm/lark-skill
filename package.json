@@ -1,0 +1,51 @@
+{
+  "name": "lark-skill",
+  "version": "1.0.0",
+  "description": "Expose Feishu/Lark to your coding agent as ONE skill instead of 27. Vendors the official larksuite/cli skills and routes to them on demand. Works with pi and zcode.",
+  "type": "module",
+  "bin": {
+    "lark-skill": "bin/lark-skill.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "templates",
+    "README.md",
+    "README.zh.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "smoke": "node bin/lark-skill.js doctor"
+  },
+  "keywords": [
+    "lark",
+    "feishu",
+    "飞书",
+    "skill",
+    "agent-skill",
+    "agent-skills",
+    "lark-cli",
+    "pi",
+    "zcode",
+    "claude-code",
+    "codex",
+    "ai-agent"
+  ],
+  "author": "adamcjm",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamcjm/lark-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adamcjm/lark-skill/issues"
+  },
+  "homepage": "https://github.com/adamcjm/lark-skill#readme"
+}
